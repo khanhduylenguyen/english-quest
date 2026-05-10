@@ -16,9 +16,9 @@ export function SiteHeader() {
 
         <nav className="hidden md:flex items-center gap-6 text-sm font-semibold text-muted-foreground">
           <Link to="/" activeProps={{ className: "text-primary" }} activeOptions={{ exact: true }} className="hover:text-primary transition">Trang chủ</Link>
+          <Link to="/courses" activeProps={{ className: "text-primary" }} className="hover:text-primary transition">Khóa học</Link>
           <a href="/#roadmap" className="hover:text-primary transition">Lộ trình</a>
-          <a href="/#leaderboard" className="hover:text-primary transition">Bảng xếp hạng</a>
-          <Link to="/dashboard" className="hover:text-primary transition">Bàn học</Link>
+          <Link to="/dashboard" activeProps={{ className: "text-primary" }} className="hover:text-primary transition">Bàn học</Link>
         </nav>
 
         <div className="flex items-center gap-2">
