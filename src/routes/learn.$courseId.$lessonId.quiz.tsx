@@ -56,7 +56,7 @@ function QuizPage() {
           <p className="text-sm text-muted-foreground mt-1">+{correctCount * 10} XP</p>
 
           <div className="mt-6 space-y-2 text-left">
-            {questions.map((q, i) => {
+            {questions.map((q: any, i: number) => {
               const ok = answers[i] === q.answer;
               return (
                 <div key={i} className={`flex items-start gap-2 rounded-xl p-3 text-sm ${ok ? "bg-success/10" : "bg-destructive/10"}`}>
@@ -124,7 +124,7 @@ function QuizPage() {
           <h1 className="font-display text-2xl md:text-3xl font-bold mt-2">{q.question}</h1>
 
           <div className="mt-6 space-y-3">
-            {q.options.map((opt, i) => {
+            {q.options.map((opt: string, i: number) => {
               const selected = answers[current] === i;
               return (
                 <button

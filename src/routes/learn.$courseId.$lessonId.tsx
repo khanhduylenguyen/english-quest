@@ -74,7 +74,7 @@ function LearningPage() {
             <h2 className="font-display font-bold leading-tight">{course.title}</h2>
           </div>
           <nav className="p-2 space-y-1">
-            {course.lessons.map((l, i) => {
+            {course.lessons.map((l: any, i: number) => {
               const done = isLessonComplete(course.id, l.id);
               const active = l.id === lesson.id;
               return (

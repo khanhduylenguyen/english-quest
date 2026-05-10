@@ -39,7 +39,7 @@ function CourseDetail() {
   }, []);
 
   const progress = getCourseProgress(course.id, course.lessons.length);
-  const firstIncomplete = course.lessons.find((l) => !isLessonComplete(course.id, l.id)) ?? course.lessons[0];
+  const firstIncomplete = course.lessons.find((l: any) => !isLessonComplete(course.id, l.id)) ?? course.lessons[0];
 
   return (
     <div className="min-h-screen flex flex-col" key={tick}>
@@ -81,7 +81,7 @@ function CourseDetail() {
         <div className="mt-8">
           <h2 className="font-display text-2xl font-bold mb-4">Nội dung khóa học</h2>
           <ul className="space-y-3">
-            {course.lessons.map((l, i) => {
+            {course.lessons.map((l: any, i: number) => {
               const done = isLessonComplete(course.id, l.id);
               const prevDone = i === 0 || isLessonComplete(course.id, course.lessons[i - 1].id);
               const locked = !prevDone && !done;
