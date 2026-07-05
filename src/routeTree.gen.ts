@@ -10,17 +10,26 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SignupRouteImport } from './routes/signup'
+import { Route as McpRouteImport } from './routes/mcp'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CoursesCourseIdRouteImport } from './routes/courses.$courseId'
+import { Route as Char91DotwellKnownChar93OauthProtectedResourceRouteImport } from './routes/[.well-known]/oauth-protected-resource'
+import { Route as Char91DotmcpChar93ListToolsRouteImport } from './routes/[.mcp]/list-tools'
 import { Route as LearnCourseIdLessonIdRouteImport } from './routes/learn.$courseId.$lessonId'
+import { Route as Char91DotmcpChar93InvokeToolToolRouteImport } from './routes/[.mcp]/invoke-tool/$tool'
 import { Route as LearnCourseIdLessonIdQuizRouteImport } from './routes/learn.$courseId.$lessonId.quiz'
 
 const SignupRoute = SignupRouteImport.update({
   id: '/signup',
   path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const McpRoute = McpRouteImport.update({
+  id: '/mcp',
+  path: '/mcp',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -48,11 +57,29 @@ const CoursesCourseIdRoute = CoursesCourseIdRouteImport.update({
   path: '/$courseId',
   getParentRoute: () => CoursesRoute,
 } as any)
+const Char91DotwellKnownChar93OauthProtectedResourceRoute =
+  Char91DotwellKnownChar93OauthProtectedResourceRouteImport.update({
+    id: '/.well-known/oauth-protected-resource',
+    path: '/.well-known/oauth-protected-resource',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const Char91DotmcpChar93ListToolsRoute =
+  Char91DotmcpChar93ListToolsRouteImport.update({
+    id: '/.mcp/list-tools',
+    path: '/.mcp/list-tools',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LearnCourseIdLessonIdRoute = LearnCourseIdLessonIdRouteImport.update({
   id: '/learn/$courseId/$lessonId',
   path: '/learn/$courseId/$lessonId',
   getParentRoute: () => rootRouteImport,
 } as any)
+const Char91DotmcpChar93InvokeToolToolRoute =
+  Char91DotmcpChar93InvokeToolToolRouteImport.update({
+    id: '/.mcp/invoke-tool/$tool',
+    path: '/.mcp/invoke-tool/$tool',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const LearnCourseIdLessonIdQuizRoute =
   LearnCourseIdLessonIdQuizRouteImport.update({
     id: '/quiz',
@@ -65,8 +92,12 @@ export interface FileRoutesByFullPath {
   '/courses': typeof CoursesRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/mcp': typeof McpRoute
   '/signup': typeof SignupRoute
+  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/learn/$courseId/$lessonId': typeof LearnCourseIdLessonIdRouteWithChildren
   '/learn/$courseId/$lessonId/quiz': typeof LearnCourseIdLessonIdQuizRoute
 }
@@ -75,8 +106,12 @@ export interface FileRoutesByTo {
   '/courses': typeof CoursesRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/mcp': typeof McpRoute
   '/signup': typeof SignupRoute
+  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/learn/$courseId/$lessonId': typeof LearnCourseIdLessonIdRouteWithChildren
   '/learn/$courseId/$lessonId/quiz': typeof LearnCourseIdLessonIdQuizRoute
 }
@@ -86,8 +121,12 @@ export interface FileRoutesById {
   '/courses': typeof CoursesRouteWithChildren
   '/dashboard': typeof DashboardRoute
   '/login': typeof LoginRoute
+  '/mcp': typeof McpRoute
   '/signup': typeof SignupRoute
+  '/.mcp/list-tools': typeof Char91DotmcpChar93ListToolsRoute
+  '/.well-known/oauth-protected-resource': typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
   '/courses/$courseId': typeof CoursesCourseIdRoute
+  '/.mcp/invoke-tool/$tool': typeof Char91DotmcpChar93InvokeToolToolRoute
   '/learn/$courseId/$lessonId': typeof LearnCourseIdLessonIdRouteWithChildren
   '/learn/$courseId/$lessonId/quiz': typeof LearnCourseIdLessonIdQuizRoute
 }
@@ -98,8 +137,12 @@ export interface FileRouteTypes {
     | '/courses'
     | '/dashboard'
     | '/login'
+    | '/mcp'
     | '/signup'
+    | '/.mcp/list-tools'
+    | '/.well-known/oauth-protected-resource'
     | '/courses/$courseId'
+    | '/.mcp/invoke-tool/$tool'
     | '/learn/$courseId/$lessonId'
     | '/learn/$courseId/$lessonId/quiz'
   fileRoutesByTo: FileRoutesByTo
@@ -108,8 +151,12 @@ export interface FileRouteTypes {
     | '/courses'
     | '/dashboard'
     | '/login'
+    | '/mcp'
     | '/signup'
+    | '/.mcp/list-tools'
+    | '/.well-known/oauth-protected-resource'
     | '/courses/$courseId'
+    | '/.mcp/invoke-tool/$tool'
     | '/learn/$courseId/$lessonId'
     | '/learn/$courseId/$lessonId/quiz'
   id:
@@ -118,8 +165,12 @@ export interface FileRouteTypes {
     | '/courses'
     | '/dashboard'
     | '/login'
+    | '/mcp'
     | '/signup'
+    | '/.mcp/list-tools'
+    | '/.well-known/oauth-protected-resource'
     | '/courses/$courseId'
+    | '/.mcp/invoke-tool/$tool'
     | '/learn/$courseId/$lessonId'
     | '/learn/$courseId/$lessonId/quiz'
   fileRoutesById: FileRoutesById
@@ -129,7 +180,11 @@ export interface RootRouteChildren {
   CoursesRoute: typeof CoursesRouteWithChildren
   DashboardRoute: typeof DashboardRoute
   LoginRoute: typeof LoginRoute
+  McpRoute: typeof McpRoute
   SignupRoute: typeof SignupRoute
+  Char91DotmcpChar93ListToolsRoute: typeof Char91DotmcpChar93ListToolsRoute
+  Char91DotwellKnownChar93OauthProtectedResourceRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRoute
+  Char91DotmcpChar93InvokeToolToolRoute: typeof Char91DotmcpChar93InvokeToolToolRoute
   LearnCourseIdLessonIdRoute: typeof LearnCourseIdLessonIdRouteWithChildren
 }
 
@@ -140,6 +195,13 @@ declare module '@tanstack/react-router' {
       path: '/signup'
       fullPath: '/signup'
       preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mcp': {
+      id: '/mcp'
+      path: '/mcp'
+      fullPath: '/mcp'
+      preLoaderRoute: typeof McpRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -177,11 +239,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CoursesCourseIdRouteImport
       parentRoute: typeof CoursesRoute
     }
+    '/.well-known/oauth-protected-resource': {
+      id: '/.well-known/oauth-protected-resource'
+      path: '/.well-known/oauth-protected-resource'
+      fullPath: '/.well-known/oauth-protected-resource'
+      preLoaderRoute: typeof Char91DotwellKnownChar93OauthProtectedResourceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.mcp/list-tools': {
+      id: '/.mcp/list-tools'
+      path: '/.mcp/list-tools'
+      fullPath: '/.mcp/list-tools'
+      preLoaderRoute: typeof Char91DotmcpChar93ListToolsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/learn/$courseId/$lessonId': {
       id: '/learn/$courseId/$lessonId'
       path: '/learn/$courseId/$lessonId'
       fullPath: '/learn/$courseId/$lessonId'
       preLoaderRoute: typeof LearnCourseIdLessonIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/.mcp/invoke-tool/$tool': {
+      id: '/.mcp/invoke-tool/$tool'
+      path: '/.mcp/invoke-tool/$tool'
+      fullPath: '/.mcp/invoke-tool/$tool'
+      preLoaderRoute: typeof Char91DotmcpChar93InvokeToolToolRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/learn/$courseId/$lessonId/quiz': {
@@ -223,7 +306,12 @@ const rootRouteChildren: RootRouteChildren = {
   CoursesRoute: CoursesRouteWithChildren,
   DashboardRoute: DashboardRoute,
   LoginRoute: LoginRoute,
+  McpRoute: McpRoute,
   SignupRoute: SignupRoute,
+  Char91DotmcpChar93ListToolsRoute: Char91DotmcpChar93ListToolsRoute,
+  Char91DotwellKnownChar93OauthProtectedResourceRoute:
+    Char91DotwellKnownChar93OauthProtectedResourceRoute,
+  Char91DotmcpChar93InvokeToolToolRoute: Char91DotmcpChar93InvokeToolToolRoute,
   LearnCourseIdLessonIdRoute: LearnCourseIdLessonIdRouteWithChildren,
 }
 export const routeTree = rootRouteImport
