@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "sdk_version": "0.20.0",
+  "path": "/mcp",
+  "auth": {
+    "type": "none"
+  },
+  "mcp": {
+    "server": {
+      "name": "engquest-mcp",
+      "version": "0.1.0",
+      "title": "EngQuest MCP"
+    },
+    "tools": [
+      {
+        "name": "list_courses",
+        "title": "List courses",
+        "description": "List all English learning courses available on EngQuest, including grade, level, and lesson count.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {}
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_course",
+        "title": "Get course details",
+        "description": "Get details of a course by its id, including the list of lessons (id, title, duration, description).",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "courseId": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The course id, e.g. 'grade-7-grammar'."
+            }
+          },
+          "required": [
+            "courseId"
+          ]
+        },
+        "outputSchema": null
+      },
+      {
+        "name": "get_lesson",
+        "title": "Get lesson",
+        "description": "Get a single lesson (with quiz questions and answers) from a course by course id and lesson id.",
+        "annotations": {
+          "readOnlyHint": true,
+          "idempotentHint": true,
+          "openWorldHint": false
+        },
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "properties": {
+            "courseId": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The course id, e.g. 'grade-7-grammar'."
+            },
+            "lessonId": {
+              "type": "string",
+              "minLength": 1,
+              "description": "The lesson id within the course, e.g. 'l1'."
+            }
+          },
+          "required": [
+            "courseId",
+            "lessonId"
+          ]
+        },
+        "outputSchema": null
+      }
+    ]
+  }
+}
