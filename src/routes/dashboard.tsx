@@ -1,6 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
 import { Leaderboard } from "@/components/Leaderboard";
+import { BadgesGrid } from "@/components/BadgesGrid";
 import { Flame, Target, BookOpen, Headphones, MessagesSquare, Lightbulb, Check, Trophy, Star } from "lucide-react";
 import owl from "@/assets/mascot-owl.png";
 
@@ -84,6 +85,10 @@ function Dashboard() {
               );
             })}
           </div>
+        </div>
+
+        <div className="mt-6">
+          <BadgesGrid streak={14} />
         </div>
 
         <div className="grid lg:grid-cols-3 gap-6 mt-6">

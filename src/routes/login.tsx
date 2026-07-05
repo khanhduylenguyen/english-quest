@@ -1,5 +1,5 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Sparkles, Mail, Lock } from "lucide-react";
 
 const QUOTES = [
@@ -22,7 +22,10 @@ export const Route = createFileRoute("/login")({
 
 function LoginPage() {
   const navigate = useNavigate();
-  const quote = QUOTES[Math.floor(Math.random() * QUOTES.length)];
+  const [quote, setQuote] = useState(QUOTES[0]);
+  useEffect(() => {
+    setQuote(QUOTES[Math.floor(Math.random() * QUOTES.length)]);
+  }, []);
   const [remember, setRemember] = useState(true);
 
   return (

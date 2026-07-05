@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { getLesson } from "@/lib/courses-data";
 import { isLessonComplete, markLessonComplete } from "@/lib/progress";
 import { ArrowLeft, ArrowRight, CheckCircle2, PlayCircle, Menu, X, BookOpen, Trophy } from "lucide-react";
+import { Flashcards } from "@/components/Flashcards";
 
 export const Route = createFileRoute("/learn/$courseId/$lessonId")({
   loader: ({ params }) => {
@@ -130,6 +131,13 @@ function LearningPage() {
             <p className="text-muted-foreground mt-2">{lesson.description}</p>
           </div>
 
+          {/* Flashcards */}
+          {lesson.vocabulary?.length > 0 && (
+            <div className="mt-6">
+              <Flashcards words={lesson.vocabulary} />
+            </div>
+          )}
+
           {/* Notes */}
           <div className="mt-6 rounded-2xl bg-gradient-card p-6 border border-border/50">
             <h3 className="font-display text-lg font-bold flex items-center gap-2 mb-3">
@@ -137,8 +145,8 @@ function LearningPage() {
             </h3>
             <ul className="space-y-2 text-sm text-foreground/90">
               <li className="flex gap-2"><span className="text-primary">•</span> Xem video kỹ và lặp lại các từ mới.</li>
-              <li className="flex gap-2"><span className="text-primary">•</span> Ghi chép cấu trúc câu quan trọng vào sổ tay.</li>
-              <li className="flex gap-2"><span className="text-primary">•</span> Hoàn thành quiz cuối bài để củng cố kiến thức.</li>
+              <li className="flex gap-2"><span className="text-primary">•</span> Lật thẻ từ vựng ở trên và bấm 🔊 để luyện phát âm.</li>
+              <li className="flex gap-2"><span className="text-primary">•</span> Hoàn thành quiz cuối bài để mở khoá danh hiệu.</li>
             </ul>
           </div>
 
