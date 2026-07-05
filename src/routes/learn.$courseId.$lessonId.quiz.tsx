@@ -59,11 +59,22 @@ function QuizPage() {
             {questions.map((q: any, i: number) => {
               const ok = answers[i] === q.answer;
               return (
-                <div key={i} className={`flex items-start gap-2 rounded-xl p-3 text-sm ${ok ? "bg-success/10" : "bg-destructive/10"}`}>
-                  {ok ? <Check className="h-4 w-4 text-success mt-0.5 shrink-0" /> : <X className="h-4 w-4 text-destructive mt-0.5 shrink-0" />}
-                  <div className="min-w-0">
-                    <p className="font-semibold">{q.question}</p>
-                    {!ok && <p className="text-xs text-muted-foreground mt-0.5">Đáp án đúng: <b>{q.options[q.answer]}</b></p>}
+                <div key={i} className={`rounded-xl p-3 text-sm ${ok ? "bg-success/10" : "bg-destructive/10"}`}>
+                  <div className="flex items-start gap-2">
+                    {ok ? <Check className="h-4 w-4 text-success mt-0.5 shrink-0" /> : <X className="h-4 w-4 text-destructive mt-0.5 shrink-0" />}
+                    <div className="min-w-0 flex-1">
+                      <p className="font-semibold">{q.question}</p>
+                      {!ok && (
+                        <p className="text-xs text-muted-foreground mt-0.5">
+                          Bạn chọn: <b className="text-destructive">{answers[i] !== null ? q.options[answers[i]!] : "—"}</b> · Đáp án đúng: <b className="text-success">{q.options[q.answer]}</b>
+                        </p>
+                      )}
+                      {q.explanation && (
+                        <p className="text-xs mt-1.5 rounded-lg bg-background/60 border border-border/50 p-2">
+                          💡 <b>Giải thích:</b> {q.explanation}
+                        </p>
+                      )}
+                    </div>
                   </div>
                 </div>
               );
