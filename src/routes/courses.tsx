@@ -9,7 +9,10 @@ export const Route = createFileRoute("/courses")({
   head: () => ({
     meta: [
       { title: "Khóa học — EngQuest" },
-      { name: "description", content: "Danh sách khóa học tiếng Anh cho học sinh cấp 2 từ lớp 6 đến lớp 9." },
+      {
+        name: "description",
+        content: "Danh sách khóa học tiếng Anh cho học sinh cấp 2 từ lớp 6 đến lớp 9.",
+      },
     ],
   }),
   component: CoursesPage,
@@ -49,13 +52,19 @@ function CoursesPage() {
                 className="group rounded-3xl bg-gradient-card p-6 border border-border/50 shadow-soft hover:shadow-glow hover:-translate-y-1 transition-all"
               >
                 <div className="flex items-start gap-4">
-                  <div className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${c.color} text-3xl shadow-pop shrink-0`}>
+                  <div
+                    className={`flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br ${c.color} text-3xl shadow-pop shrink-0`}
+                  >
                     {c.emoji}
                   </div>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
-                      <span className="rounded-full bg-primary/10 text-primary px-2.5 py-0.5 text-xs font-bold">{c.grade}</span>
-                      <span className="rounded-full bg-muted text-muted-foreground px-2.5 py-0.5 text-xs font-bold">{c.level}</span>
+                      <span className="rounded-full bg-primary/10 text-primary px-2.5 py-0.5 text-xs font-bold">
+                        {c.grade}
+                      </span>
+                      <span className="rounded-full bg-muted text-muted-foreground px-2.5 py-0.5 text-xs font-bold">
+                        {c.level}
+                      </span>
                     </div>
                     <h2 className="font-display text-xl font-bold mt-2">{c.title}</h2>
                     <p className="text-sm text-muted-foreground mt-1">{c.description}</p>
@@ -66,14 +75,20 @@ function CoursesPage() {
                   <span className="inline-flex items-center gap-1.5">
                     <BookOpen className="h-3.5 w-3.5" /> {c.lessons.length} bài học
                   </span>
-                  <span>{p.done}/{p.total} hoàn thành · {p.percent}%</span>
+                  <span>
+                    {p.done}/{p.total} hoàn thành · {p.percent}%
+                  </span>
                 </div>
                 <div className="h-2 w-full rounded-full bg-muted overflow-hidden">
-                  <div className="h-full bg-gradient-success transition-all" style={{ width: `${p.percent}%` }} />
+                  <div
+                    className="h-full bg-gradient-success transition-all"
+                    style={{ width: `${p.percent}%` }}
+                  />
                 </div>
 
                 <div className="mt-5 flex items-center justify-end text-sm font-bold text-primary group-hover:gap-2 transition-all">
-                  Vào học <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition" />
+                  Vào học{" "}
+                  <ArrowRight className="h-4 w-4 ml-1 group-hover:translate-x-1 transition" />
                 </div>
               </Link>
             );

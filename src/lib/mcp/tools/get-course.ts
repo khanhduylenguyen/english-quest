@@ -5,7 +5,8 @@ import { getCourse } from "@/lib/courses-data";
 export default defineTool({
   name: "get_course",
   title: "Get course details",
-  description: "Get details of a course by its id, including the list of lessons (id, title, duration, description).",
+  description:
+    "Get details of a course by its id, including the list of lessons (id, title, duration, description).",
   inputSchema: {
     courseId: z.string().min(1).describe("The course id, e.g. 'grade-7-grammar'."),
   },

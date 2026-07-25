@@ -47,9 +47,7 @@
               "description": "The course id, e.g. 'grade-7-grammar'."
             }
           },
-          "required": [
-            "courseId"
-          ]
+          "required": ["courseId"]
         },
         "outputSchema": null
       },
@@ -77,10 +75,7 @@
               "description": "The lesson id within the course, e.g. 'l1'."
             }
           },
-          "required": [
-            "courseId",
-            "lessonId"
-          ]
+          "required": ["courseId", "lessonId"]
         },
         "outputSchema": null
       }

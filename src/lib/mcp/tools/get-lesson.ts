@@ -5,7 +5,8 @@ import { getLesson } from "@/lib/courses-data";
 export default defineTool({
   name: "get_lesson",
   title: "Get lesson",
-  description: "Get a single lesson (with quiz questions and answers) from a course by course id and lesson id.",
+  description:
+    "Get a single lesson (with quiz questions and answers) from a course by course id and lesson id.",
   inputSchema: {
     courseId: z.string().min(1).describe("The course id, e.g. 'grade-7-grammar'."),
     lessonId: z.string().min(1).describe("The lesson id within the course, e.g. 'l1'."),

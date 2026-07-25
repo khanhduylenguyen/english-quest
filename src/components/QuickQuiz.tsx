@@ -32,10 +32,18 @@ export function QuickQuiz() {
         </div>
         <h3 className="font-display text-2xl font-bold">Tuyệt vời!</h3>
         <p className="mt-2 text-muted-foreground">
-          Bạn đúng <span className="font-bold text-primary">{score}/{QUESTIONS.length}</span> câu.
+          Bạn đúng{" "}
+          <span className="font-bold text-primary">
+            {score}/{QUESTIONS.length}
+          </span>{" "}
+          câu.
         </p>
         <button
-          onClick={() => { setStep(0); setScore(0); setPicked(null); }}
+          onClick={() => {
+            setStep(0);
+            setScore(0);
+            setPicked(null);
+          }}
           className="mt-6 inline-flex h-11 items-center rounded-xl bg-gradient-primary px-6 font-bold text-primary-foreground shadow-pop hover:translate-y-0.5 hover:shadow-none transition-all"
         >
           Thử lại

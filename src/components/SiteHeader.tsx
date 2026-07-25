@@ -9,16 +9,35 @@ export function SiteHeader() {
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-primary shadow-soft">
             <Sparkles className="h-5 w-5 text-primary-foreground" />
           </div>
-          <span className="font-display text-xl font-bold text-foreground">
-            EngQuest
-          </span>
+          <span className="font-display text-xl font-bold text-foreground">EngQuest</span>
         </Link>
 
         <nav className="hidden md:flex items-center gap-6 text-sm font-semibold text-muted-foreground">
-          <Link to="/" activeProps={{ className: "text-primary" }} activeOptions={{ exact: true }} className="hover:text-primary transition">Trang chủ</Link>
-          <Link to="/courses" activeProps={{ className: "text-primary" }} className="hover:text-primary transition">Khóa học</Link>
-          <a href="/#roadmap" className="hover:text-primary transition">Lộ trình</a>
-          <Link to="/dashboard" activeProps={{ className: "text-primary" }} className="hover:text-primary transition">Bàn học</Link>
+          <Link
+            to="/"
+            activeProps={{ className: "text-primary" }}
+            activeOptions={{ exact: true }}
+            className="hover:text-primary transition"
+          >
+            Trang chủ
+          </Link>
+          <Link
+            to="/courses"
+            activeProps={{ className: "text-primary" }}
+            className="hover:text-primary transition"
+          >
+            Khóa học
+          </Link>
+          <a href="/#roadmap" className="hover:text-primary transition">
+            Lộ trình
+          </a>
+          <Link
+            to="/dashboard"
+            activeProps={{ className: "text-primary" }}
+            className="hover:text-primary transition"
+          >
+            Bàn học
+          </Link>
         </nav>
 
         <div className="flex items-center gap-2">

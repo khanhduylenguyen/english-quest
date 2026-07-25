@@ -39,7 +39,9 @@ export function Leaderboard() {
                 <p className="text-xs text-muted-foreground">{p.grade}</p>
               </div>
               <div className="text-right">
-                <p className="font-display text-base font-bold text-primary">{p.points.toLocaleString()}</p>
+                <p className="font-display text-base font-bold text-primary">
+                  {p.points.toLocaleString()}
+                </p>
                 <p className="text-[10px] uppercase tracking-wide text-muted-foreground">XP</p>
               </div>
             </li>

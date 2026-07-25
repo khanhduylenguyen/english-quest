@@ -3,7 +3,9 @@ import { getEarnedBadges } from "@/lib/badges";
 import { Award, Lock } from "lucide-react";
 
 export function BadgesGrid({ streak = 14 }: { streak?: number }) {
-  const [badges, setBadges] = useState(() => getEarnedBadges(streak).map((b) => ({ ...b, earned: false })));
+  const [badges, setBadges] = useState(() =>
+    getEarnedBadges(streak).map((b) => ({ ...b, earned: false })),
+  );
 
   useEffect(() => {
     const refresh = () => setBadges(getEarnedBadges(streak));
@@ -36,10 +38,19 @@ export function BadgesGrid({ streak = 14 }: { streak?: number }) {
             title={b.description}
           >
             <div className="text-3xl mb-1 relative inline-block">
-              {b.earned ? b.emoji : <><span className="grayscale">{b.emoji}</span><Lock className="h-3 w-3 absolute -bottom-1 -right-1 text-muted-foreground" /></>}
+              {b.earned ? (
+                b.emoji
+              ) : (
+                <>
+                  <span className="grayscale">{b.emoji}</span>
+                  <Lock className="h-3 w-3 absolute -bottom-1 -right-1 text-muted-foreground" />
+                </>
+              )}
             </div>
             <p className="font-bold text-xs leading-tight">{b.title}</p>
-            <p className="text-[10px] text-muted-foreground mt-0.5 leading-tight">{b.description}</p>
+            <p className="text-[10px] text-muted-foreground mt-0.5 leading-tight">
+              {b.description}
+            </p>
           </div>
         ))}
       </div>

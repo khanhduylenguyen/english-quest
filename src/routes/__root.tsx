@@ -76,7 +76,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Nền tảng học tiếng Anh tương tác cho học sinh lớp 6–9." },
       { name: "author", content: "EngQuest" },
       { property: "og:title", content: "EngQuest — Học tiếng Anh vui" },
-      { property: "og:description", content: "Lộ trình bản đồ kho báu, mascot đồng hành, bảng xếp hạng." },
+      {
+        property: "og:description",
+        content: "Lộ trình bản đồ kho báu, mascot đồng hành, bảng xếp hạng.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
@@ -84,7 +87,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     links: [
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap",
+      },
       {
         rel: "stylesheet",
         href: appCss,

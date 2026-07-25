@@ -29,7 +29,9 @@ export function Flashcards({ words }: { words: VocabWord[] }) {
         <h3 className="font-display text-lg font-bold flex items-center gap-2">
           <Sparkles className="h-5 w-5 text-accent" /> Hộp từ vựng
         </h3>
-        <span className="text-xs font-bold text-muted-foreground">{i + 1}/{words.length}</span>
+        <span className="text-xs font-bold text-muted-foreground">
+          {i + 1}/{words.length}
+        </span>
       </div>
 
       <button
@@ -41,12 +43,17 @@ export function Flashcards({ words }: { words: VocabWord[] }) {
             <p className="font-display text-3xl font-bold text-primary">{w.word}</p>
             <p className="text-sm text-muted-foreground">{w.ipa}</p>
             <button
-              onClick={(e) => { e.stopPropagation(); speak(w.word); }}
+              onClick={(e) => {
+                e.stopPropagation();
+                speak(w.word);
+              }}
               className="mt-2 inline-flex items-center gap-1.5 rounded-full bg-primary/10 px-3 py-1.5 text-xs font-bold text-primary hover:bg-primary/20 transition"
             >
               <Volume2 className="h-3.5 w-3.5" /> Nghe
             </button>
-            <p className="text-xs text-muted-foreground mt-2 opacity-70 group-hover:opacity-100">Click để lật thẻ →</p>
+            <p className="text-xs text-muted-foreground mt-2 opacity-70 group-hover:opacity-100">
+              Click để lật thẻ →
+            </p>
           </div>
         ) : (
           <div className="space-y-3">
@@ -58,7 +65,10 @@ export function Flashcards({ words }: { words: VocabWord[] }) {
               <p className="text-xs font-bold text-muted-foreground uppercase">Ví dụ</p>
               <p className="text-sm italic">"{w.example}"</p>
               <button
-                onClick={(e) => { e.stopPropagation(); speak(w.example); }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  speak(w.example);
+                }}
                 className="mt-1 inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline"
               >
                 <Volume2 className="h-3 w-3" /> Nghe ví dụ
@@ -77,7 +87,10 @@ export function Flashcards({ words }: { words: VocabWord[] }) {
         </button>
         <div className="flex-1 flex justify-center gap-1">
           {words.map((_, idx) => (
-            <span key={idx} className={`h-1.5 rounded-full transition-all ${idx === i ? "w-6 bg-primary" : "w-1.5 bg-muted"}`} />
+            <span
+              key={idx}
+              className={`h-1.5 rounded-full transition-all ${idx === i ? "w-6 bg-primary" : "w-1.5 bg-muted"}`}
+            />
           ))}
         </div>
         <button

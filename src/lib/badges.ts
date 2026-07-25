@@ -75,7 +75,13 @@ export function getBadgeContext(streak = 0): BadgeContext {
     if (done) completedCourses += 1;
   }
 
-  return { completedLessonsCount, quizzesTakenCount, perfectQuizzesCount, completedCourses, streak };
+  return {
+    completedLessonsCount,
+    quizzesTakenCount,
+    perfectQuizzesCount,
+    completedCourses,
+    streak,
+  };
 }
 
 export function getEarnedBadges(streak = 0) {
